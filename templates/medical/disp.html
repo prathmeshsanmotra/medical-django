@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'medical/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<div class="display">
+  <h2>Thank You for submittng the form</h2>
+  <h2>Data Submitted</h2>
+  <br>
+  <h3>Name: {{ name1 }}</h3>
+  <h3>Email: {{ email1 }}</h3>
+  <h3>Mobile: {{ mobile1 }}</h3>
+  <h3>Blood Group: {{ blood1 }}</h3>
+  <h3>Sex: {{ sex1 }}</h3>
+  <h3>Age: {{ age1 }}</h3>
+  <h3>Address: {{ address1 }}</h3>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'medical/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+<form class="accform" method="post">
+  <h1>Appointment Form</h1>
+  <br>
+  {% csrf_token %}
+  {{ form1.as_p }}
+  <button type="submit" >Send</button>
+</form>
+{% endblock %}

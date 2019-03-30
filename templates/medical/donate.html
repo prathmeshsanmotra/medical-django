@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'medical/base.html' %}
+{% load staticfiles %}
+{% block title %}
+<title>Donation Form</title>
+{% endblock %}
+{% block body_block %}
+<form class="accform" method="post">
+  <h1>Donation Form</h1>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" >Send</button>
+</form>
+{% endblock %}

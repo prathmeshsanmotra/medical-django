@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <script src="{% static 'js/abc.js' %}" charset="utf-8"></script>
+    {% block title  %}
+      <title>Medical</title>
+    {% endblock %}
+  </head>
+  <body>
+        <div class="hero-image">
+          <div class="nav">
+            <nav class="navbar navbar-expand topnav">
+                <a class="navbar-brand" href="{% url 'base' %}">Medical</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="{% url 'base' %}">Home <span class="sr-only"></span></a>
+                    <a class="nav-item nav-link active" href="{% url 'donation' %}">Donation Form</a>
+                    <a class="nav-item nav-link active" href="{% url 'appointment' %}">Book an Appointment</a>
+                    <a class="nav-item nav-link active" href="{% url 'sympt' %}">Symptom Checker</a>
+                    <div class="dropdown">
+                      <button class="dropbtn">Services</button>
+                      <div class="dropdown-content">
+                        <a href="{% url 'donation' %}">Donation Form</a>
+                        <a href="{% url 'appointment' %}">Book an Appointment</a>
+                        <a href="{% url 'sympt' %}">Symptom Checker</a>
+                      </div>
+                    </div>
+                    {% if user.is_authenticated %}
+                      <a class="nav-item nav-link" href="{% url 'logout' %}">LogOut</a>
+                    {% else %}
+                      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                      <a class="nav-item nav-link" href="{% url 'register' %}">Sign Up</a>
+                    {% endif %}
+                  </div>
+                </div>
+            </nav>
+        </div>
+
+
+        {% block body_block %}
+          <div class="hero-text">
+            <h1>Lifeline Welcomes you</h1>
+          </div>
+          <a href="#contact">
+            <img class="scroll" src={% static "images/scrol.png" %} alt="" height="50px" width="50px">
+          </a>
+        </div>
+        <br>
+        <br>
+        <div id="contact" class="contactus">
+          <h2><strong>About Us</strong></h2>
+          <br>
+          <br>
+          <p>Medical Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <br><br>
+        <div class="contactus">
+          <div class="single-footer-widget">
+            <h2><strong>Our Services</strong></h2>
+            <br>
+            <br>
+            <div class="listed">
+              <h4><a href="{% url 'base' %}">Cardiology</a></h4>
+              <br>
+              <h4><a href="{% url 'base' %}">Dental Care</a></h4>
+              <br>
+              <h4><a href="{% url 'base' %}">Eye Care</a></h4>
+              <br>
+              <h4><a href="{% url 'base' %}">Donor Details</a></h4>
+              <br>
+              <h4><a href="{% url 'base' %}">Qualified Doctors</a></h4>
+  				    <br>
+              </div>
+            </div>
+          </div>
+
+      {% endblock %}
+
+  </body>
+</html>
