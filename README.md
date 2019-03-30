@@ -8,4 +8,4 @@ Extensions used:
   
  2. Crispy Forms:
   Installation :
-    pip install django - crispy-forms
+    pip install django-crispy-forms
